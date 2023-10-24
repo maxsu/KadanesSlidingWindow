@@ -1,3 +1,6 @@
+import collections
+
+
 def max_subarray_sum(arr):
     if not arr:
         return 0
@@ -19,3 +22,19 @@ def max_subarray_sum(arr):
                 curr_sum += arr[start_idx]
 
     return max_sum
+
+class KadaneSlidingWindow:
+    def __init__(self, maxlen):
+        self.maxlen = maxlen
+        self.window = collections.deque()
+        self.long_term_memory = []
+
+    def add(self, elements):
+        for element in elements:
+            self.window.append(element)
+            self.long_term_memory.append(element)
+            if len(self.window) > self.maxlen:
+                self.window.popleft()
+
+    def get_context(self):
+        return " ".join(self.window)

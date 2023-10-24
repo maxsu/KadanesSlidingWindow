@@ -1,22 +1,6 @@
-import collections
-import torch
+from KadanesSlidingWindow import KadaneSlidingWindow
+
 from transformers import AutoModelForCausalLM, AutoTokenizer
-
-class KadaneSlidingWindow:
-    def __init__(self, maxlen):
-        self.maxlen = maxlen
-        self.window = collections.deque()
-        self.long_term_memory = []
-
-    def add(self, elements):
-        for element in elements:
-            self.window.append(element)
-            self.long_term_memory.append(element)
-            if len(self.window) > self.maxlen:
-                self.window.popleft()
-
-    def get_context(self):
-        return " ".join(self.window)
 
 # Create a Kadane Sliding Window with a size of 1000 tokens
 kadane_sliding_window = KadaneSlidingWindow(maxlen=1000)
