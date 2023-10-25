@@ -1,11 +1,11 @@
 """
-This file contains an implementation of a Kadane Sliding Window for the Phi model.
+This file contains an implementation of a Kadane Sliding Window for a HuggingFace causal language model.
 
 Configuration:
-    PROMPT (str): The prompt to use for the Phi model.
-    FOLLOW_UP_PROMPT (str): The follow-up prompt to use for the Phi model.
+    PROMPT (str): The prompt to use for the model.
+    FOLLOW_UP_PROMPT (str): The follow-up prompt to use for the model.
     MAX_LEN (int): The maximum length of the sliding window.
-    MODEL (str): The name of the Phi model to use.
+    MODEL (str): The name of the causal model to use.
 """
 
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -20,18 +20,18 @@ MAX_LEN = 1000
 MODEL = "microsoft/phi-1_5"
 
 
-def PhiTestCodeImplementation(
+def TestKadaneGeneration(
     window: KadaneSlidingWindow,
     model: AutoModelForCausalLM,
     tokenizer: AutoTokenizer,
 ):
     """
-    Generate text using the Phi model.
+    Generate text using a language model.
 
     Args:
-        window (KadaneSlidingWindow): The sliding window to use for the Phi model.
-        model (AutoModelForCausalLM): The Phi model.
-        tokenizer (AutoTokenizer): The tokenizer for the Phi model.
+        window (KadaneSlidingWindow): The sliding window to use for the model.
+        model (AutoModelForCausalLM): A causal language model.
+        tokenizer (AutoTokenizer): The tokenizer for the language model.
     """
     # Add the prompt to the sliding window before starting the loop
     window.add(PROMPT.split())
@@ -78,8 +78,8 @@ if __name__ == "__main__":
         torch_dtype="auto",
     )
 
-    # Generate text using the Phi model and the Kadane Sliding Window
-    PhiTestCodeImplementation(
+    # Generate text using the model and the Kadane Sliding Window
+    TestKadaneGeneration(
         window=window,
         model=model,
         tokenizer=tokenizer,
