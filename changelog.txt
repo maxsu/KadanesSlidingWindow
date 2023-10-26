@@ -1,0 +1,26 @@
+0.1.1
+
+
+Refactors:
+* PhiTestCodeImplementation.py:
+  - extract constants and magic numbers into a configuration section
+  - add type hints
+  - Rename variable `kadanes_sliding_window` to `window`
+  - Place main code into an `if __name__ == "__main__":` block
+  - Extract the KadanesSlidingWindow class into the KadanesSlidingWindow module
+  - Extract the PhiTestCodeImplmentation usecase
+  - Update variable and function names to be more generic and not specific to Phi model
+  - rename PhiTestCodeImplementation.py to TestKadaneGeneration.py
+
+Docs:
+* PhiTestCodeImplementation.py:
+  - add module docstring
+  - add docstring for PhiTestCodeImplementation usecase
+
+Chores:
+* PhiTestCodeImplementation.py:
+  - Format long lines
+  - reorganize import statements 
+  - drop unused torch import
+  - remove unnecessary assignment of context variable
+  - remove redundant print comment
