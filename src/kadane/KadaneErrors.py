@@ -1,0 +1,6 @@
+
+class BadRequest(Exception):
+    ...
+
+class GenerationError(Exception):
+    ...
