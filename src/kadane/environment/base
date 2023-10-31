@@ -1,0 +1,15 @@
+from abc import ABC, abstractmethod
+
+
+ModelRepository = dict[str, IModel]
+
+
+class Environment:
+
+    model_repository: ModelRepository
+
+    model: IModel
+
+    request: ModelContext
+    def __init__(self, model_repository: ModelRepository):
+        self.model_repository = model_repository
